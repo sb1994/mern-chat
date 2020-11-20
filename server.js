@@ -25,6 +25,11 @@ mongoose
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+//ataching the passport middle ware to the app instance
+app.use(passport.initialize());
+require("./config/passport")(passport);
+
 const users = require("./api/routes/users");
 
 app.use("/api/users", users);
